@@ -61,6 +61,11 @@ def _download_audio(url: str, out_dir: str) -> Path:
         }],
         "quiet": True,
         "no_warnings": True,
+        "extractor_args": {
+            "youtube": {
+                "player_client": ["android", "web_creator"],
+            }
+        },
     }
     with yt_dlp.YoutubeDL(opts) as ydl:
         ydl.download([url])
